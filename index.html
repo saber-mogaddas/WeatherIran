@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fa" lang="fa">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="fa" />
+	 <script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+    <link href="example_jquerytools.css" rel="stylesheet" type="text/css" />
+    <script src="jquery.zweatherfeed.min.js" type="text/javascript"></script>
+    <script src="chosen.jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var wSelect = $("#mySelect").val();
+        $('#test').weatherfeed([wSelect]);
+        $('#mySelect').change(function () {
+            $('.weatherItem:first').remove();
+            $.getScript("ScrL.js", function (data, textStatus, jqxhr) {
+                console.log(data);
+                console.log(textStatus);
+                console.log(jqxhr.status);
+                console.log("بارگذاری انجام شد.");
+            });
+        });
+        $("#mySelect").chosen({
+            disable_search_threshold: 10,
+            no_results_text: "شهر مورد نظر شما یافت نشد.",
+            width: "80%"
+        });
+    });
+</script>
+        <title>weather v3</title>
+        </head>
+        <body id="Body">
+            <div id="SVG" class="scrollable vertical">
+                <span class="Loading-Txt"><img src="ajax-loader.gif" /></span>
+                <div id="test" class="items">
+                    <select id="mySelect">
+                        <option value="IRXX0023">ارومیه</option>
+						 <option value="IRXX0016">تبریز</option>
+						   <option value="IRXX0018">تهران</option>
+						<option value="IRXX0061">اردبیل</option>
+						 <option value="IRXX0003">اصفهان</option>
+                        <option value="IRXX0006">کرج</option>
+						 <option value="IRXX0029">کرمانشاه</option>
+						 <option value="IRXX0055">سیستان و بلوچستان</option>
+						  <option value="IRXX0015">شیراز</option>
+						  <option value="IRXX0008">مشهد</option>
+						   <option value="IRXX0024">زنجان</option>
+						     <option value="IRXX0044">گرگان</option>  
+                        <option value="IRXX0032">اهواز</option>
+						  <option value="IRXX0057">رشت</option>
+						   <option value="IRXX0060">ساری</option>
+						    <option value="IRXX0030">اراک</option>
+							 <option value="IRXX0033">بندرعباس</option>
+							  <option value="IRXX0048">همدان</option>
+                        <option value="IRXX0026">بابلسر</option>
+                        <option value="IRXX0001">آبادان</option>
+                        <option value="IRXX0019">یزد</option>
+                        <option value="IRXX0020">زاهدان</option>
+                       <option value="IRXX0034">کرمان</option>
+                    </select>
+                </div>
+            </div>
+        </body>
+</html>
